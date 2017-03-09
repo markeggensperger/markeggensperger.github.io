@@ -34,3 +34,5 @@ function onLocationError(e) {
 }
 
 mymap.on('locationerror', onLocationError);
+
+console.log('new version')
