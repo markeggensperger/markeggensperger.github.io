@@ -16,3 +16,21 @@ var circle = L.circle([40.777557, -73.977018], {
 }).addTo(mymap);
 
 mymap.locate({setView: true, maxZoom: 16});
+
+
+function onLocationFound(e) {
+    var radius = e.accuracy / 2;
+
+    L.marker(e.latlng).addTo(mymap)
+        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+    L.circle(e.latlng, radius).addTo(mymap);
+}
+
+mymap.on('locationfound', onLocationFound);
+
+function onLocationError(e) {
+    alert(e.message);
+}
+
+mymap.on('locationerror', onLocationError);
