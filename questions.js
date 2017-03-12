@@ -18,9 +18,6 @@ document.querySelector('form').addEventListener('submit', function (e) {
         setImageVisible('clue4c', false)
         setImageVisible('5abc', true)
     }
-    else {
-        alert("Try Again")
-    }
 
 });
 
