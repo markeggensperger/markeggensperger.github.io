@@ -1,7 +1,7 @@
-var intrepidPointLatLng = L.latLng(40.764535, -73.999522);
+var unitedNationsLatLng = L.latLng(40.764535, -73.999522);
 var markHouseLatLng = L.latLng(40.777539, -73.977099);
 var allowableRadiusMeters = 150
-var beginningImageId = 'clue8a'
+var beginningImageId = 'clue8c'
 var endingImageId = 'clue9abc'
 var interestPointLatLng = markHouseLatLng
 
