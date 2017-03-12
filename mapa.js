@@ -1,25 +1,21 @@
-// var interestPointLatLng = L.latLng(40.764535, -73.999522);
-var interestPointLatLng = L.latLng(40.777539, -73.977099);
+var intrepidPointLatLng = L.latLng(40.764535, -73.999522);
+var markHouseLatLng = L.latLng(40.777539, -73.977099);
 var allowableRadiusMeters = 150
+var beginningImageId = 'clue8a'
+var endingImageId = 'clue9abc'
+var interestPointLatLng = markHouseLatLng
 
 var mymap = L.map('mapid');
 
-
 mymap.locate({setView: true, maxZoom: 16});
-
 
 function onLocationFound(e) {
     console.log(e)
     var distance = e.latlng.distanceTo(interestPointLatLng)
     if (distance <= allowableRadiusMeters) {
-        console.log('yayayo')
-        setImageVisible('clue8a', false)
-        setImageVisible('clue9abc', true)
-    } else {
-        console.log('haha mark, such a fool you are')
+        setImageVisible(beginningImageId, false)
+        setImageVisible(endingImageId, true)
     }
-
-    console.log(distance)
 }
 
 mymap.on('locationfound', onLocationFound);
