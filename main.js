@@ -1,4 +1,8 @@
-var mymap = L.map('mapid').setView([40.777557, -73.977018], 15);
+// var interestPointLatLng = L.latLng(40.764535, -73.999522);
+var interestPointLatLng = L.latLng(40.777539, -73.977099);
+var allowableRadiusMeters = 150
+
+var mymap = L.map('mapid');
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -8,23 +12,19 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(mymap);
 
 
-var circle = L.circle([40.777557, -73.977018], {
-    color: 'blue',
-    fillColor: '#99ccff',
-    fillOpacity: 0.5,
-    radius: 100
-}).addTo(mymap);
-
 mymap.locate({setView: true, maxZoom: 16});
 
 
 function onLocationFound(e) {
-    var radius = e.accuracy / 2;
+    console.log(e)
+    var distance = e.latlng.distanceTo(interestPointLatLng)
+    if (distance <= allowableRadiusMeters) {
+        console.log('yayayo')
+    } else {
+        console.log('haha mark, such a fool you are')
+    }
 
-    L.marker(e.latlng).addTo(mymap)
-        .bindPopup("You are within " + radius + " meters from this point").openPopup();
-
-    L.circle(e.latlng, radius).addTo(mymap);
+    console.log(distance)
 }
 
 mymap.on('locationfound', onLocationFound);
@@ -35,4 +35,3 @@ function onLocationError(e) {
 
 mymap.on('locationerror', onLocationError);
 
-console.log('new version')
