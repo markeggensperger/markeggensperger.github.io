@@ -14,6 +14,7 @@ function onLocationFound(e) {
     if (distance <= allowableRadiusMeters) {
         console.log('yayayo')
         setImageVisible('clue8a', false)
+        setImageVisible('clue9abc', true)
     } else {
         console.log('haha mark, such a fool you are')
     }
@@ -32,4 +33,5 @@ mymap.on('locationerror', onLocationError);
 function setImageVisible(id, visible) {
     var img = document.getElementById(id);
     img.style.visibility = (visible ? 'visible' : 'hidden');
+    img.style.height = (visible ? '100%' : '0')
 }
