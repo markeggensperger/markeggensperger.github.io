@@ -3,7 +3,7 @@ var markHouseLatLng = L.latLng(40.777539, -73.977099);
 var allowableRadiusMeters = 150
 var beginningImageId = 'clue8b'
 var endingImageId = 'clue9abc'
-var interestPointLatLng = markHouseLatLng
+var interestPointLatLng = bryantParkLatLng
 
 var mymap = L.map('mapid');
 
