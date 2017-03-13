@@ -12,3 +12,9 @@ html, body {
     height: 90vh;
     width: 100vw;
 }
+div {
+    position: absolute;
+    margin: auto;
+    width:100%;
+}
+        
